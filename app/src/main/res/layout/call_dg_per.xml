@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="12dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="15dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="To ensure the normal use of the app, you need to grant permissions" />
+
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/btn_permission"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bt_bg"
+        android:gravity="center"
+        android:text="Confirm"
+        android:textColor="@color/white" />
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/apply_img"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/apply_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="36dp"
+            android:src="@mipmap/call_return"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:textSize="32sp"
+            android:text="000-12345678"
+            android:textColor="#FFF7F7F7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_close" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/white_cir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/apply_number" />
+
+        
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="88dp"
+            android:layout_height="44dp"
+            android:id="@+id/apply_no"
+            android:src="@mipmap/apply_no"
+            app:layout_constraintEnd_toStartOf="@id/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/line"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/apply_apply"
+            android:layout_marginBottom="53dp"
+            android:id="@+id/line"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="88dp"
+            android:layout_height="44dp"
+            android:src="@mipmap/apply_yes"
+            android:id="@+id/appky_yes"
+            app:layout_constraintStart_toEndOf="@id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/line"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apply_apply"
+            android:layout_width="256dp"
+            android:layout_height="52dp"
+            android:background="@drawable/gray_26_all"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="Apply"
+            android:layout_marginBottom="72dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
