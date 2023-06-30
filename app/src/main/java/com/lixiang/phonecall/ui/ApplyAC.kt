@@ -45,7 +45,6 @@ class ApplyAC : LIGuangXu<ApplyAaaaBinding>() {
     private fun check() {
         val permissions = arrayOf(
             android.Manifest.permission.READ_PHONE_STATE,
-            android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.ANSWER_PHONE_CALLS,
             android.Manifest.permission.READ_CALL_LOG,
         )
