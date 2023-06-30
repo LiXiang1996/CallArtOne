@@ -41,13 +41,28 @@ class ApplyAC : LIGuangXu<ApplyAaaaBinding>() {
 
     }
 
+    fun check2(){
+        if (!Settings.canDrawOverlays(this)) {
+            val dialog = DgPermission(this)
+            dialog.show()
+            dialog.setOnClickListener(object : DgPermission.onClickListener {
+                override fun onClick() {
+                    val intent = Intent()
+                    intent.action = Settings.ACTION_MANAGE_OVERLAY_PERMISSION
+                    startActivityForResult(intent, RESULT_ACTION_MANAGE_OVERLAY_PERMISSION)
+                    Variable.toRequestPermission2 = true
+                }
+            })
+        }else{
+            applyImg()
+        }
+    }
+
 
     private fun check() {
         val permissions = arrayOf(
             android.Manifest.permission.READ_PHONE_STATE,
-            android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.ANSWER_PHONE_CALLS,
-            android.Manifest.permission.READ_CALL_LOG,
         )
         val deniedPermissions = permissions.filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
