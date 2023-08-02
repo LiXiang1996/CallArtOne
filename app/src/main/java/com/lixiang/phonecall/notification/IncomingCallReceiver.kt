@@ -19,16 +19,15 @@ class IncomingCallReceiver : BroadcastReceiver() {
             val telephonyManager =
                 context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
             val state = telephonyManager.callState
-            if ("RINGING" == intent.getStringExtra(TelephonyManager.EXTRA_STATE)) {
-                val aaa = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
-                LogUtils.e("lixiang 捕捉aaaa$aaa")
-            }
+//            if ("RINGING" == intent.getStringExtra(TelephonyManager.EXTRA_STATE)) {
+//                val aaa = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
+//                LogUtils.e("lixiang 捕捉aaaa$aaa")
+//            }
             val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
             if (state == TelephonyManager.CALL_STATE_RINGING) {
                 LogUtils.e("lixiang 捕捉$incomingNumber")
-                SPUtils.getInstance().put("phone_number", incomingNumber)
-
+//                SPUtils.getInstance().put("phone_number", incomingNumber)
                 // 创建启动Service的Intent
                 val serviceIntent = Intent(context, CustomIncomingCallService::class.java)
                 // 启动Service
