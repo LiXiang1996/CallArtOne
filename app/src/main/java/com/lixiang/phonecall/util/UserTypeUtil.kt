@@ -25,8 +25,8 @@ object UserTypeUtil {
     private var readReferStartTime=0L
     fun readRefer(){
         if (BuildConfig.DEBUG){
-            referBuyUser=false
-            referFBBuyUser=false
+            referBuyUser=true
+            referFBBuyUser=true
             return
         }
 
@@ -114,7 +114,7 @@ object UserTypeUtil {
     private var readAdjustStartTime=0L
     fun initAdJustUserType(liXiang: LiXiang) {
         if (BuildConfig.DEBUG){
-            adjustBuyUser=false
+            adjustBuyUser=true
             return
         }
 

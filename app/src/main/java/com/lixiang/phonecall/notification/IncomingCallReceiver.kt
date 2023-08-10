@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SPUtils
 import com.lixiang.phonecall.service.CustomIncomingCallService
+import com.lixiang.phonecall.util.AppKeepUtil
 import com.lixiang.phonecall.util.MyEvent
 import org.greenrobot.eventbus.EventBus
 
@@ -29,9 +30,11 @@ class IncomingCallReceiver : BroadcastReceiver() {
                 LogUtils.e("lixiang 捕捉$incomingNumber")
 //                SPUtils.getInstance().put("phone_number", incomingNumber)
                 // 创建启动Service的Intent
-                val serviceIntent = Intent(context, CustomIncomingCallService::class.java)
-                // 启动Service
-                ContextCompat.startForegroundService(context, serviceIntent)
+                if (!AppKeepUtil.changeIcon){
+                    val serviceIntent = Intent(context, CustomIncomingCallService::class.java)
+                    // 启动Service
+                    ContextCompat.startForegroundService(context, serviceIntent)
+                }
             } else if (state == TelephonyManager.CALL_STATE_IDLE) {
                 LogUtils.e("来电挂断")
                 val event = MyEvent("calling")

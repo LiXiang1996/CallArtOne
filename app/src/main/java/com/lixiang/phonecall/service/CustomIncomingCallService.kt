@@ -24,6 +24,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.RemoteViews
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
@@ -33,6 +34,7 @@ import androidx.core.net.toUri
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SPUtils
 import com.lixiang.phonecall.R
+import com.lixiang.phonecall.base.appContext
 import com.lixiang.phonecall.util.MyEvent
 import com.lixiang.phonecall.util.PhoneUtil
 import org.greenrobot.eventbus.EventBus
@@ -206,6 +208,10 @@ class CustomIncomingCallService : Service() {
             .setContentTitle(getString(R.string.app_name))
             .setContentText("Service is running")
             .setSmallIcon(R.mipmap.call_logo)
+
+//            .setSmallIcon(R.mipmap.new_icon)
+//            .setCustomContentView(RemoteViews(appContext.packageName, R.layout.notifcation))
+
         // 设置其他通知相关的属性
 
         return notificationBuilder.build()

