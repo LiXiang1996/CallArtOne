@@ -46,7 +46,6 @@ class ApplyAC : LIGuangXu<ApplyAaaaBinding>() {
         val permissions = arrayOf(
             android.Manifest.permission.READ_PHONE_STATE,
             android.Manifest.permission.ANSWER_PHONE_CALLS,
-            android.Manifest.permission.READ_CALL_LOG,
         )
         val deniedPermissions = permissions.filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED

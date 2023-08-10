@@ -115,19 +115,19 @@ class CustomIncomingCallService : Service() {
                     //响铃
                     TelephonyManager.CALL_STATE_RINGING -> {
                         Log.i("TAG", "onCallStateChanged: 响铃${phoneNumber}")
-                        LogUtils.e("来电 嗲话 ${getLatestIncomingCallNumber(contentResolver)}")
-                        phoneNumberTextView.text = phoneNumber
-                        // 加载联系人头像和备注信息
-                        val contactPhotoImageView =
-                            overlayView.findViewById<ImageView>(R.id.contactPhotoImageView)
-                        val contactInfo = getContactInfo(LiXiang.appContext!!, phoneNumber ?: "1")
-                        if (contactInfo != null) {
-                            // 显示联系人头像和备注信息
-                            contactPhotoImageView.setImageBitmap(contactInfo.photo)
-                        } else {
-                            // 使用默认图片
-                            contactPhotoImageView.setImageResource(R.drawable.white_cir)
-                        }
+//                        LogUtils.e("来电 嗲话 ${getLatestIncomingCallNumber(contentResolver)}")
+//                        phoneNumberTextView.text = phoneNumber
+//                        // 加载联系人头像和备注信息
+//                        val contactPhotoImageView =
+//                            overlayView.findViewById<ImageView>(R.id.contactPhotoImageView)
+//                        val contactInfo = getContactInfo(LiXiang.appContext!!, phoneNumber ?: "1")
+//                        if (contactInfo != null) {
+//                            // 显示联系人头像和备注信息
+//                            contactPhotoImageView.setImageBitmap(contactInfo.photo)
+//                        } else {
+//                            // 使用默认图片
+//                            contactPhotoImageView.setImageResource(R.drawable.white_cir)
+//                        }
                     }
                 }
             }
@@ -164,27 +164,27 @@ class CustomIncomingCallService : Service() {
         windowManager.addView(overlayView, params)
     }
 
-    @SuppressLint("Range")
-    private fun getLatestIncomingCallNumber(contentResolver: ContentResolver?): String? {
-        var phoneNumber: String? = null
-        var cursor: Cursor? = null
-        try {
-            if (contentResolver != null) {
-                cursor = contentResolver.query(
-                    CallLog.Calls.CONTENT_URI, arrayOf(CallLog.Calls.NUMBER),
-                    CallLog.Calls.TYPE + " = " + CallLog.Calls.INCOMING_TYPE,
-                    null,
-                    CallLog.Calls.DATE + " DESC"
-                )
-                if (cursor != null && cursor.moveToFirst()) {
-                    phoneNumber = cursor.getString(cursor.getColumnIndex(CallLog.Calls.NUMBER))
-                }
-            }
-        } finally {
-            cursor?.close()
-        }
-        return phoneNumber
-    }
+//    @SuppressLint("Range")
+//    private fun getLatestIncomingCallNumber(contentResolver: ContentResolver?): String? {
+//        var phoneNumber: String? = null
+//        var cursor: Cursor? = null
+//        try {
+//            if (contentResolver != null) {
+//                cursor = contentResolver.query(
+//                    CallLog.Calls.CONTENT_URI, arrayOf(CallLog.Calls.NUMBER),
+//                    CallLog.Calls.TYPE + " = " + CallLog.Calls.INCOMING_TYPE,
+//                    null,
+//                    CallLog.Calls.DATE + " DESC"
+//                )
+//                if (cursor != null && cursor.moveToFirst()) {
+//                    phoneNumber = cursor.getString(cursor.getColumnIndex(CallLog.Calls.NUMBER))
+//                }
+//            }
+//        } finally {
+//            cursor?.close()
+//        }
+//        return phoneNumber
+//    }
 
 
     override fun onDestroy() {
