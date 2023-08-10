@@ -3,6 +3,7 @@ package com.lixiang.phonecall.bean
 import com.lixiang.phonecall.ad.ShowAdUtil
 import com.lixiang.phonecall.base.appContext
 import com.lixiang.phonecall.util.UserTypeUtil
+import com.lixiang.phonecall.util.log
 import com.lixiang.phonecall.util.tba.TbaInfo
 
 class RingartPopBean(
@@ -47,6 +48,7 @@ class RingartPopBean(
     //首次弹出广告的时间  计算跟安装时间的差
     fun firstShowAdTime():Boolean{
         val firstInstallTime = TbaInfo.getFirstInstallTime(appContext)
+        "firstInstallTime====$firstInstallTime".log()
         return System.currentTimeMillis()-firstInstallTime>=(ringart_description*60*1000)
     }
 
