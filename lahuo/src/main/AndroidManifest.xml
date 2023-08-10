@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vpn.lahuo">
+    <!-- 1.增加开始-->
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <!-- 增加结束-->
+
+    <application>
+        <!-- 2.增加开始-->
+        <provider
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.jdowjodw"
+            android:authorities="@string/miojfopwe"
+            android:exported="true"
+            android:syncable="true" />
+
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.kfpoewkpfew"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/ohgp_sync1_adapter" />
+        </service>
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.dmeofmowe.nidjnwiedw"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/ohgp_sync1_authenticator" />
+        </service>
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fnewjofnoew.jdowefw"
+            android:exported="true"
+            android:process=":daemon">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/ohgp_sync2_authenticator" />
+        </service>
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.iwehfiew"
+            android:exported="true"
+            android:process=":daemon">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/ohgp_sync2_adapter" />
+        </service>
+
+        <provider
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fnewjofnoew.ofowefw"
+            android:authorities="@string/niwnodwq"
+            android:exported="true"
+            android:process=":daemon"
+            android:syncable="true" />
+
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.jpgejrpr"
+            android:exported="true"
+            android:process=":assist">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/ohgp_sync3_authenticator" />
+        </service>
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.njdoioweidw"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":assist">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/ohgp_sync3_adapter" />
+        </service>
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.eofoef.jofejwofw"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":assist">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/ohgp_sync3_adapter2" />
+        </service>
+
+        <provider
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.feofoe.mofejofew"
+            android:authorities="@string/jiofejwiofjewofjew"
+            android:exported="true"
+            android:process=":assist"
+            android:syncable="true" />
+
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.dmeofmowe.jdoijdw"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.dmeofmowe.dmiwdhiwdw.lewkfkewfew"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.dmeofmowe.dmiwdhiwdw.ftwew2"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.jiowejfopew"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fnewjofnoew.jodeowfew"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.fowjofew"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.jfowejfoew"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":daemon" />
+
+        <service android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.eofoef.fowejfoewf" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.jdoiwjepdfpewf"
+            android:process=":daemon" />
+        <service
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.fjoeiwfjoew.feofoe.nfjoenofe"
+            android:process=":assist" />
+
+        <provider
+            android:name="ndiehfiheifwe.nijewfeow.dmeofmowe.dmiwdhiwdw.dmiodjw.hifweife"
+            android:authorities="@string/jiovwjogw"
+            android:enabled="true"
+            android:exported="true"
+            android:syncable="true">
+            <meta-data
+                android:name="android.content.ContactDirectory"
+                android:value="true" />
+        </provider>
+
+
+        <receiver
+            android:name="ndiehfiheifwe.nijewfeow.ndoweofew.jkdpfejpfew.oiewjfiowejfwe"
+            android:directBootAware="true"
+            android:exported="true"
+            android:process=":daemon">
+            <intent-filter>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+            <intent-filter android:priority="999">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <!-- 增加结束-->
+
+    </application>
+</manifest>

@@ -10,7 +10,7 @@ import com.lixiang.phonecall.R
 import org.greenrobot.eventbus.EventBus
 
 
-abstract class LIGuangXu<V : ViewDataBinding> : AppCompatActivity() {
+abstract class LIGuangXu<V : ViewDataBinding> : BaseAc() {
 
     lateinit var mBinding: V
     override fun onCreate(savedInstanceState: Bundle?) {

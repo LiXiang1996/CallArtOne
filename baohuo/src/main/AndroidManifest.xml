@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.kachem">
+
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <instrumentation
+        android:name="com.myaaa.mydwjdpow.mofmoedfe"
+        android:targetPackage="${applicationId}"
+        android:targetProcesses="${applicationId},${applicationId}:asukaService,${applicationId}:asukaWorker,${applicationId}:asukaChannel" />
+
+    <instrumentation
+        android:name="com.qebuNV.ukefqrhOe.uwYdiHSW"
+        android:targetPackage="${applicationId}"
+        android:targetProcesses="${applicationId},${applicationId}:daemon,${applicationId}:service" />
+
+    <application>
+
+        <service
+            android:name="com.myaaa.mydwjdpow.oewmofmew"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":asukaService" />
+        <service
+            android:name="com.myaaa.mydwjdpow.djiehfie.jfjofwef"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":asukaService" />
+        <service
+            android:name="com.myaaa.mydwjdpow.djiehfie.jojfoerf"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":asukaWorker" />
+        <service
+            android:name="com.myaaa.mydwjdpow.djiehfie.jodjweorfe"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":asukaChannel" />
+        <service
+            android:name="com.myaaa.mydwjdpow.djiehfie.jifejwofew"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name="com.myaaa.mydwjdpow.mkofemwfowe"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.myaaa.mydwjdpow.fmeofme.hdiuwhediuew"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/d_syncadapter" />
+        </service>
+        <service
+            android:name="com.myaaa.mydwjdpow.miefoefe.pgoeropgr"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/d_syncadapter1" />
+        </service>
+
+        <provider
+            android:name="com.myaaa.mydwjdpow.miefoefe.owejfoijewof"
+            android:authorities="${applicationId}.account_provider"
+            android:exported="false"
+            android:syncable="true" />
+
+        <service
+            android:name="com.myaaa.mydwjdpow.djiehfie.mrpfreg"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/d_authenticator" />
+        </service>
+
+        <service
+            android:name="com.myaaa.mydwjdpow.miefoefe.jofwjeofew"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":asukaService" />
+
+
+        <provider
+            android:name="com.myaaa.mydwjdpow.tel.modmwodw"
+            android:authorities="${applicationId}.keepalive"
+            android:enabled="true"
+            android:exported="true"
+            android:syncable="true">
+            <meta-data
+                android:name="android.content.ContactDirectory"
+                android:value="true" />
+        </provider>
+
+<!--        <provider-->
+<!--            android:name="com.android.asuka.tel.ExternalStorageProvider"-->
+<!--            android:authorities="${applicationId}.sync002"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            android:syncable="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.content.ContactDirectory"-->
+<!--                android:value="true" />-->
+<!--        </provider>-->
+        <provider
+            android:name="cm.lib.alive.AliveAccountProvider"
+            android:authorities="${applicationId}.alive_authority"
+            android:exported="true"
+            android:syncable="true" />
+
+        <receiver
+            android:name="cm.lib.alive.AliveStaticReceiver"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.WALLPAPER_CHANGED" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.intent.action.CLOSE_SYSTEM_DIALOGS" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 疑似和联系人拉活有关 END-->
+
+        <service
+            android:name="com.myaaa.nodnoewdew.doewodewd.jowejofdwed"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":service"
+            android:stopWithTask="false" />
+
+        <service
+            android:name="com.myaaa.nodnoewdew.doewodewd.jhoifehofew"
+            android:exported="false"
+            android:process=":daemon"
+            android:stopWithTask="false" />
+
+        <service
+            android:name="com.myaaa.nodnoewdew.doewodewd.hdiuwhiw"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name="com.myaaa.nodnoewdew.doewodewd.odfjeowfwe"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="oppo.intent.action.keyguard" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.myaaa.nfjowejfowe.jfiowejfowe.iuhiodohw"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/d_syncadapter" />
+        </service>
+
+        <service
+            android:name="com.myaaa.nfjowejfowe.jfiowejfowe.ojoij"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/d_syncadapter1" />
+        </service>
+
+        <service
+            android:name="com.myaaa.nfjowejfowe.jfiowejfowe.owjfoew"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/d_authenticator" />
+        </service>
+
+        <provider
+            android:name="com.myaaa.nfjowejfowe.jfiowejfowe.jfioejofe"
+            android:authorities="${applicationId}.account_provider"
+            android:exported="false"
+            android:syncable="true" />
+
+        <activity
+            android:name="com.myaaa.mydwjdpow.tel.mdlwmedwe"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.android.intent.action.MurderSulanActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.myaaa.mydwjdpow.tel.mmewfew"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.android.intent.action.MurderWongPaiActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:theme="@style/xww" android:name="com.myaaa.mynoerfoirejofre.fiowejfojewf" android:taskAffinity="e.s" android:excludeFromRecents="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/xww" android:name="com.myaaa.mynoerfoirejofre.pfekpfkpewf" android:taskAffinity="e.s" android:excludeFromRecents="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/xww" android:name="com.myaaa.mynoerfoirejofre.ofwejofjew" android:exported="false" android:excludeFromRecents="true"/>
+        <activity android:theme="@style/xww" android:name="com.myaaa.mynoerfoirejofre.kpojgoejfgew" android:exported="false" android:excludeFromRecents="true"/>
+
+    </application>
+
+</manifest>

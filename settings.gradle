@@ -10,7 +10,30 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven{
+            url "https://jitpack.io"
+        }
+        maven{
+            url "https://maven.google.com"
+        }
+        maven{
+            url "https://maven.aliyun.com/repository/public"
+        }
+        flatDir {
+            dirs 'libs'
+        }
+        //Anythink(Core)
+        maven {
+            url "https://anythink.jfrog.io/artifactory/android_sdk"
+        }
+
+        //Pangle
+        maven {
+            url "https://artifact.bytedance.com/repository/pangle"
+        }
     }
 }
 rootProject.name = "Phone Call Show One"
 include ':app'
+include ':baohuo'
+include ':lahuo'
