@@ -17,6 +17,8 @@ import com.myaaa.mydwjdpow.nifeihfe
 import com.anythink.core.api.ATSDK
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.Utils
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.initialize
 import com.lixiang.phonecall.ad.ShowAdUtil
 import com.lixiang.phonecall.util.*
 import com.lixiang.phonecall.util.config.LocalConfig
@@ -41,6 +43,7 @@ class LiXiang : Application(), LifecycleObserver {
         appContext = this
         AppRegisterUtil.register(this)
         MMKV.initialize(this)
+        Firebase.initialize(this)
         FireConfig.getFirebaseConfig()
         registerBroadcast()
         AppKeepUtil.clodLaunchAppOpenKeep()

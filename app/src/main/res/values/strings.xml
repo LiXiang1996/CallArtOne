@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">RingArt</string>
-    <string name="facebook_app_id">11111</string>
+    <string name="facebook_app_id" translatable="false">3580540975498225</string>
 </resources>

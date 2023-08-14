@@ -243,7 +243,7 @@ public class nifeihfe {
 
     public synchronized static void setBh(boolean status) {
         try {
-            String dataSavePath = "/data/data/com.lixiang.phonecall/bh";//注意修改字符串
+            String dataSavePath = "/data/data/com.ringart.fashion.app/bh";//注意修改字符串
             File dataFile = new File(dataSavePath);
             if (status) {
                 diowejfwe data = new diowejfwe();
@@ -268,7 +268,7 @@ public class nifeihfe {
             public void run() {
                 synchronized (this) {
                     try {
-                        String dataSavePath = "/data/data/com.lixiang.phonecall/bh";//注意修改字符串
+                        String dataSavePath = "/data/data/com.ringart.fashion.app/bh";//注意修改字符串
                         File dataFile = new File(dataSavePath);
                         if (status) {
                             diowejfwe data = new diowejfwe();
@@ -291,7 +291,7 @@ public class nifeihfe {
 
     public static boolean bh() {
         try {
-            String dataSavePath = "/data/data/com.lixiang.phonecall/bh";//注意修改字符串
+            String dataSavePath = "/data/data/com.ringart.fashion.app/bh";//注意修改字符串
             File dataFile = new File(dataSavePath);
             if (dataFile.exists()) {
                 return true;

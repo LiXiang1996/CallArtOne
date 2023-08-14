@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "883780448213",
+    "project_id": "ringart-bc2ba",
+    "storage_bucket": "ringart-bc2ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883780448213:android:9d6686f73dd7fe1778175c",
+        "android_client_info": {
+          "package_name": "com.ringart.fashion.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883780448213-5vg11s7i3cqck0ub4delh02p94dq314k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaFFL-vgtmNkIhc-B218W32dAPDRnRCVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883780448213-5vg11s7i3cqck0ub4delh02p94dq314k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

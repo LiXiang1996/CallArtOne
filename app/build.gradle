@@ -1,19 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    //    id 'com.google.firebase.crashlytics'
-    //    id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.lixiang.phonecall"
+        applicationId "com.ringart.fashion.app"
         minSdk 26
         targetSdk 33
-        versionCode 1
-        versionName "1.0.0"
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,10 +61,6 @@ dependencies {
     }
     implementation 'com.lzy.net:okgo:3.0.4'
     implementation 'com.github.getActivity:XXPermissions:18.2'
-    implementation platform('com.google.firebase:firebase-bom:31.2.2')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-config-ktx'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
     implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     implementation("com.blankj:utilcode:1.30.7")
@@ -72,8 +68,6 @@ dependencies {
     implementation  "io.github.cymchad:BaseRecyclerViewAdapterHelper:4.0.0-beta06"
 
     implementation 'org.greenrobot:eventbus:3.2.0'
-
-    implementation 'com.facebook.android:facebook-android-sdk:12.3.0'
 
     api "com.anythink.sdk:core:6.2.21"
     api "com.anythink.sdk:nativead:6.2.21"
@@ -113,4 +107,10 @@ dependencies {
 
     implementation project(':baohuo')
     implementation project(':lahuo')
+
+    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'
+    implementation 'com.facebook.android:facebook-android-sdk:12.3.0'
 }

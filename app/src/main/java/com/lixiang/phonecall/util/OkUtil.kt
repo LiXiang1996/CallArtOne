@@ -71,8 +71,6 @@ object OkUtil {
     }
 
     fun uploadTbaEvent(jsonObject: JSONObject,gaid:String,install:Boolean=false){
-        return
-
         val url="$tbaUrl?twelve=$gaid&nation=${TbaInfo.getDeviceModel()}"
         OkGo.post<String>(url)
             .retryCount(3)
