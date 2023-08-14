@@ -8,17 +8,18 @@ import com.lixiang.phonecall.ad.ShowAdUtil
 
 object AppRegisterUtil {
     var appFront=false
+    var pages=0
     var acList= arrayListOf<Activity>()
     
     fun register(application: Application){
         application.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
-                
+                acList.add(p0)
             }
 
             override fun onActivityStarted(p0: Activity) {
-                acList.add(p0)
-                if (acList.size>=1){
+                pages++
+                if (pages>=1){
                     appFront =true
                 }
             }
@@ -32,10 +33,11 @@ object AppRegisterUtil {
             }
 
             override fun onActivityStopped(p0: Activity) {
-                acList.remove(p0)
-                if (acList.size<=0){
+                pages--
+                if (pages<=0){
                     appFront =false
                     FirebasePointUtil.point("ringart_test_home")
+                    acList.forEach { it.finishAndRemoveTask() }
                     if (ShowAdUtil.interAdShowing){
                         ActivityUtils.finishAllActivities()
                         ShowAdUtil.interAdShowing=false
@@ -49,7 +51,7 @@ object AppRegisterUtil {
             }
 
             override fun onActivityDestroyed(p0: Activity) {
-                
+                acList.remove(p0)
             }
         })
     }
