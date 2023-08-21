@@ -20,6 +20,7 @@ object FireConfig {
 
     fun getFirebaseConfig(){
         if (!BuildConfig.DEBUG){
+            "start get config".log()
             val remoteConfig = Firebase.remoteConfig
             remoteConfig.fetchAndActivate().addOnCompleteListener {
                 if (it.isSuccessful){
