@@ -31,8 +31,10 @@ class RingartPopBean(
 
     fun checkBuyUserShowAd():Boolean{
         if (!checkUserType()){
+            "checkBuyUserShowAd----${checkUserType()}".log()
             return true
         }
+        "checkBuyUserShowAd----$ringart_style....${UserTypeUtil.referFBBuyUser}..${UserTypeUtil.adjustBuyUser}..${UserTypeUtil.referBuyUser}".log()
         return when(ringart_style){
             1->UserTypeUtil.referFBBuyUser
             2->UserTypeUtil.adjustBuyUser||UserTypeUtil.referBuyUser||UserTypeUtil.referFBBuyUser
@@ -53,4 +55,8 @@ class RingartPopBean(
     }
 
     fun getCanStartService()=ringart_parameter10==1
+
+    override fun toString(): String {
+        return "RingartPopBean(ringart_length=$ringart_length, ringart_width=$ringart_width, ringart_height=$ringart_height, ringart_color=$ringart_color, ringart_material=$ringart_material, ringart_style=$ringart_style, ringart_size=$ringart_size, ringart_price=$ringart_price, ringart_description=$ringart_description, ringart_parameter10=$ringart_parameter10)"
+    }
 }

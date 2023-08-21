@@ -6,7 +6,12 @@ import com.lixiang.phonecall.BuildConfig
 import com.lixiang.phonecall.bean.RingartExchangeIcoBean
 import com.lixiang.phonecall.bean.RingartPopBean
 import com.lixiang.phonecall.util.AppKeepUtil
+import com.lixiang.phonecall.util.log
 import com.tencent.mmkv.MMKV
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 object FireConfig {
@@ -28,6 +33,7 @@ object FireConfig {
     }
 
     private fun saveAdToLocal(string: String){
+        "ad config--->s$string".log()
         MMKV.defaultMMKV().encode("phone_ad",string)
     }
 
@@ -41,6 +47,7 @@ object FireConfig {
 
     private fun parseRingartPopJson(string: String){
         runCatching {
+            "RingartPop config-->$string".log()
             val jsonObject = JSONObject(string)
             ringartPopBean=RingartPopBean(
                 ringart_length = jsonObject.optInt("ringart_length"),
@@ -54,17 +61,24 @@ object FireConfig {
                 ringart_description = jsonObject.optInt("ringart_description"),
                 ringart_parameter10 = jsonObject.optInt("ringart_parameter10"),
             )
+            "parse RingartPop success--->${ringartPopBean.toString()}".log()
+        }.onFailure {
+            "parse RingartPop fail-->${it.message?:""}".log()
         }
     }
 
     private fun parseRingartExchangeIcoJson(string: String){
         runCatching {
+            "RingartExchangeIco  config--->$string".log()
             val jsonObject = JSONObject(string)
             ringartExchangeIcoBean=RingartExchangeIcoBean(
                 ringart_isuser = jsonObject.optInt("ringart_isuser"),
                 ringart_after = jsonObject.optInt("ringart_after"),
                 ringart_changeone = jsonObject.optInt("ringart_changeone"),
             )
+            "parse RingartExchangeIco success--->${ringartExchangeIcoBean.toString()}".log()
+        }.onFailure {
+            "parse RingartExchangeIco fail--->${it.message?:""}".log()
         }
     }
 }

@@ -30,4 +30,10 @@ class RingartExchangeIcoBean(
     }
 
     fun changeIconDelayTime()=ringart_after*60*1000
+
+    override fun toString(): String {
+        return "RingartExchangeIcoBean(ringart_isuser=$ringart_isuser, ringart_after=$ringart_after, ringart_changeone=$ringart_changeone)"
+    }
+
+
 }

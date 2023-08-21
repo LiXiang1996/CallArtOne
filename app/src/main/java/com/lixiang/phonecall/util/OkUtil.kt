@@ -88,12 +88,12 @@ object OkUtil {
                             saveHasReferrerTag()
                         }
                     }
-                    "=onSuccess==${response?.body()?.toString()}==".log()
+//                    "=onSuccess==${response?.body()?.toString()}==".log()
                 }
 
                 override fun onError(response: Response<String>?) {
                     super.onError(response)
-                    "=onError==${response?.body()?.toString()}==".log()
+//                    "=onError==${response?.body()?.toString()}==".log()
                 }
             })
     }
