@@ -25,7 +25,6 @@ class MainActivity : LIGuangXu<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppKeepUtil.hideIcon()
         val spanCount = 2 // 每行的列数，根据需要设置
         val layoutManager = GridLayoutManager(this, spanCount)
         mBinding.list.layoutManager = layoutManager

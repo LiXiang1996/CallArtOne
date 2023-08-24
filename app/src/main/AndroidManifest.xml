@@ -39,6 +39,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhoneCallShowOne"
         tools:targetApi="31">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity
             android:name=".ui.SplashAC"
             android:exported="true"
