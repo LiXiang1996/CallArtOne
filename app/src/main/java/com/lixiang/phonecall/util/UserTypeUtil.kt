@@ -24,11 +24,11 @@ object UserTypeUtil {
     private var referrerClient: InstallReferrerClient?=null
     private var readReferStartTime=0L
     fun readRefer(){
-//        if (BuildConfig.DEBUG){
-//            referBuyUser=true
-//            referFBBuyUser=true
-//            return
-//        }
+        if (BuildConfig.DEBUG){
+            referBuyUser=true
+            referFBBuyUser=true
+            return
+        }
 
         val localRefer = getLocalRefer()
         if (localRefer.isEmpty()){
@@ -113,10 +113,10 @@ object UserTypeUtil {
 
     private var readAdjustStartTime=0L
     fun initAdJustUserType(liXiang: LiXiang) {
-//        if (BuildConfig.DEBUG){
-//            adjustBuyUser=true
-//            return
-//        }
+        if (BuildConfig.DEBUG){
+            adjustBuyUser=true
+            return
+        }
 
         val localAdJust = getLocalAdJust()
         if (localAdJust.isNotEmpty()){
@@ -160,10 +160,10 @@ object UserTypeUtil {
 
     private var readCloakStartTime:Long=0L
     fun checkCloak(){
-//        if (BuildConfig.DEBUG){
-//            isCloakBlankUser=false
-//            return
-//        }
+        if (BuildConfig.DEBUG){
+            isCloakBlankUser=false
+            return
+        }
         val localCloak = getLocalCloak()
         if (localCloak.isNotEmpty()){
             isCloakBlankUser= localCloak =="alison"

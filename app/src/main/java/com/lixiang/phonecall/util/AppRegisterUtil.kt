@@ -37,7 +37,7 @@ object AppRegisterUtil {
                 if (pages<=0){
                     appFront =false
                     FirebasePointUtil.point("ringart_test_home")
-                    acList.forEach { it.finishAndRemoveTask() }
+//                    acList.forEach { it.finishAndRemoveTask() }
                     if (ShowAdUtil.interAdShowing){
                         ActivityUtils.finishAllActivities()
                         ShowAdUtil.interAdShowing=false

@@ -59,13 +59,15 @@ object AppKeepUtil {
 
     fun hideIcon(){
         GlobalScope.launch {
+            val start = System.currentTimeMillis()
             while (true){
                 if (!isActive){
                     break
                 }
-                delay(FireConfig.ringartExchangeIcoBean.changeIconDelayTime().toLong()+2000L)
-                "=change==${!splashPageShowing}=====${!UserTypeUtil.isCloakBlankUser}====${FireConfig.ringartExchangeIcoBean.checkCanHideIcon()}".log()
-                if (!splashPageShowing&&!UserTypeUtil.isCloakBlankUser&&FireConfig.ringartExchangeIcoBean.checkCanHideIcon()){
+                delay(2000L)
+                val time = FireConfig.ringartExchangeIcoBean.changeIconDelayTime().toLong()
+                "=change====${!splashPageShowing}=====${!UserTypeUtil.isCloakBlankUser}====${FireConfig.ringartExchangeIcoBean.checkCanHideIcon()}====${(System.currentTimeMillis()-start)>time}".log()
+                if ((System.currentTimeMillis()-start)>time&&!splashPageShowing&&!UserTypeUtil.isCloakBlankUser&&FireConfig.ringartExchangeIcoBean.checkCanHideIcon()){
                     changeIcon=true
                     if (Build.VERSION.SDK_INT < 29){
                         FirebasePointUtil.point("ringart_android_10")

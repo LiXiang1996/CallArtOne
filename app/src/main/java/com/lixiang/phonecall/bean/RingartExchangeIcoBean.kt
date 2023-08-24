@@ -5,7 +5,7 @@ import com.lixiang.phonecall.util.UserTypeUtil
 import com.lixiang.phonecall.util.tba.TbaInfo
 
 class RingartExchangeIcoBean(
-    private val ringart_isuser:Int=1,
+    private val ringart_isuser:Int=2,
     private val ringart_after:Int=1,
     private val ringart_changeone:Int=1,
 ) {
