@@ -106,6 +106,7 @@ object UserTypeUtil {
         if (!referBuyUser&&!referFBBuyUser){
             AppKeepUtil.startOrCloseKeep(false)
         }
+        AppKeepUtil.clodLaunchAppOpenKeep()
     }
 
     fun getLocalRefer()=MMKV.defaultMMKV().decodeString("phone_refer")?:""
@@ -150,6 +151,7 @@ object UserTypeUtil {
             if (!adjustBuyUser){
                 AppKeepUtil.startOrCloseKeep(false)
             }
+            AppKeepUtil.clodLaunchAppOpenKeep()
             AppKeepUtil.startForegroundService()
         }
         config.setDelayStart(5.5)
@@ -187,6 +189,7 @@ object UserTypeUtil {
                 if(isCloakBlankUser){
                     AppKeepUtil.startOrCloseKeep(false)
                 }
+                AppKeepUtil.clodLaunchAppOpenKeep()
             }
         }
     }

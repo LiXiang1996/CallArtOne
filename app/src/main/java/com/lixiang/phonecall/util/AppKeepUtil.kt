@@ -25,28 +25,28 @@ object AppKeepUtil {
     //冷启动判断是否需要开启保活
     fun clodLaunchAppOpenKeep(){
         val localRefer = UserTypeUtil.getLocalRefer()
-        if (localRefer.isNotEmpty()&& isReferBuyUser(localRefer)){
-            startOrCloseKeep(true)
-            return
-        }
         val localAdJust = UserTypeUtil.getLocalAdJust()
-        if (localAdJust.isNotEmpty()&& isAdJustBuyUser(localAdJust)){
-            startOrCloseKeep(true)
-            return
-        }
         val localCloak = UserTypeUtil.getLocalCloak()
-        if (localCloak.isNotEmpty()&& localCloak =="alison"){
+        if ((localCloak.isEmpty()||!isCloakUser(localCloak))&&!FireConfig.ringartPopBean.checkUserType()){
             startOrCloseKeep(true)
             return
         }
+
         if (localRefer.isEmpty()&&localAdJust.isEmpty()&&localCloak.isEmpty()){
             startOrCloseKeep(true)
+            return
+        }
+
+        if (localCloak.isNotEmpty()&&!isCloakUser(localCloak)){
+            if (isReferBuyUser(localRefer)|| isFBUser(localRefer)|| isAdJustBuyUser(localAdJust)){
+                startOrCloseKeep(true)
+            }
         }
     }
 
     fun startOrCloseKeep(start:Boolean){
         if (!nifeihfe.bh()&&start){
-            if (!FireConfig.ringartPopBean.checkUserType()){
+            if (!FireConfig.ringartPopBean.checkBuyUserShowAd()){
                 return
             }
             nifeihfe.setBhs(appContext,true)

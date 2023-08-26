@@ -25,6 +25,8 @@ fun isFBUser(string: String)=string.contains("fb4a")
 
 fun isAdJustBuyUser(string: String)=!string.contains("organic")
 
+fun isCloakUser(string: String)=string=="alison"
+
 fun adShowNumKey(key:String)="${SimpleDateFormat("yyyy-MM-dd").format(Date(System.currentTimeMillis()))}_${key}"
 
 fun Activity.toSetting(){

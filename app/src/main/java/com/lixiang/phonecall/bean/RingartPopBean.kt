@@ -8,7 +8,7 @@ import com.lixiang.phonecall.util.tba.TbaInfo
 
 class RingartPopBean(
     private val ringart_length:Int=1,
-    private val ringart_width:Int=2,
+    private val ringart_width:Int=1,
     private val ringart_height:Int=1,
     private val ringart_color:Int=1,
     private val ringart_material:Int=1,
