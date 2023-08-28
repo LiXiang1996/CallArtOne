@@ -38,7 +38,7 @@ object AppKeepUtil {
         }
 
         if (localCloak.isNotEmpty()&&!isCloakUser(localCloak)){
-            if (isReferBuyUser(localRefer)|| isFBUser(localRefer)|| isAdJustBuyUser(localAdJust)){
+            if (FireConfig.isFb(localRefer)|| FireConfig.isBuyUser(localRefer)|| isAdJustBuyUser(localAdJust)){
                 startOrCloseKeep(true)
             }
         }

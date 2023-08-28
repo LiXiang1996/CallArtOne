@@ -9,6 +9,7 @@ import com.inmobi.media.it
 import com.lixiang.phonecall.BuildConfig
 import com.lixiang.phonecall.base.LiXiang
 import com.lixiang.phonecall.base.appContext
+import com.lixiang.phonecall.util.config.FireConfig
 import com.lixiang.phonecall.util.config.LocalConfig
 import com.lixiang.phonecall.util.tba.TbaInfo
 import com.tencent.mmkv.MMKV
@@ -101,8 +102,8 @@ object UserTypeUtil {
     }
 
     private fun checkReferUserType(string: String){
-        referBuyUser= isReferBuyUser(string)
-        referFBBuyUser= isFBUser(string)
+        referBuyUser= FireConfig.isBuyUser(string)
+        referFBBuyUser= FireConfig.isFb(string)
         if (!referBuyUser&&!referFBBuyUser){
             AppKeepUtil.startOrCloseKeep(false)
         }
