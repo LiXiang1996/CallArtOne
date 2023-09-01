@@ -72,6 +72,7 @@ object UserTypeUtil {
                         InstallReferrerClient.InstallReferrerResponse.OK -> {
                             val installReferrer = referrerClient?.installReferrer?.installReferrer?:""
                             MMKV.defaultMMKV().encode("phone_refer",installReferrer)
+                            "refer---> $installReferrer".log()
                             checkReferUserType(installReferrer)
                             FirebasePointUtil.point(
                                 "ringart_close_get_install",
@@ -134,26 +135,29 @@ object UserTypeUtil {
         val config = AdjustConfig(liXiang, LocalConfig.adJustToken, AdjustConfig.ENVIRONMENT_PRODUCTION)
         config.setOnAttributionChangedListener {
             val network = it.network
-            adjustBuyUser= isAdJustBuyUser(network)
-            MMKV.defaultMMKV().encode("phone_adjust",network)
-            FirebasePointUtil.point(
-                "ringart_close_get_adjust",
-                paramsKey = "result3",
-                paramsValue = when{
-                    !network.contains("organic")->1
-                    else->2
+            if (network.isNotEmpty()){
+                "network ----> $network".log()
+                adjustBuyUser= isAdJustBuyUser(network)
+                MMKV.defaultMMKV().encode("phone_adjust",network)
+                FirebasePointUtil.point(
+                    "ringart_close_get_adjust",
+                    paramsKey = "result3",
+                    paramsValue = when{
+                        !network.contains("organic")->1
+                        else->2
+                    }
+                )
+                FirebasePointUtil.point(
+                    "ringart_close_get_adjust_time",
+                    paramsKey = "time3",
+                    paramsValue = ((System.currentTimeMillis()- readAdjustStartTime)/1000).toInt()
+                )
+                if (!adjustBuyUser){
+                    AppKeepUtil.startOrCloseKeep(false)
                 }
-            )
-            FirebasePointUtil.point(
-                "ringart_close_get_adjust_time",
-                paramsKey = "time3",
-                paramsValue = ((System.currentTimeMillis()- readAdjustStartTime)/1000).toInt()
-            )
-            if (!adjustBuyUser){
-                AppKeepUtil.startOrCloseKeep(false)
+                AppKeepUtil.clodLaunchAppOpenKeep()
+                AppKeepUtil.startForegroundService()
             }
-            AppKeepUtil.clodLaunchAppOpenKeep()
-            AppKeepUtil.startForegroundService()
         }
         config.setDelayStart(5.5)
         Adjust.onCreate(config)
