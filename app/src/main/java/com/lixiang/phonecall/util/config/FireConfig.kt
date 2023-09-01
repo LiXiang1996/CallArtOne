@@ -3,6 +3,7 @@ package com.lixiang.phonecall.util.config
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.lixiang.phonecall.BuildConfig
+import com.lixiang.phonecall.bean.FireRerferBean
 import com.lixiang.phonecall.bean.RingartExchangeIcoBean
 import com.lixiang.phonecall.bean.RingartPopBean
 import com.lixiang.phonecall.util.AppKeepUtil
@@ -17,6 +18,7 @@ import org.json.JSONObject
 object FireConfig {
     var ringartPopBean=RingartPopBean()
     var ringartExchangeIcoBean=RingartExchangeIcoBean()
+    private var ringrtBaseBean=FireRerferBean()
 
     fun getFirebaseConfig(){
         if (!BuildConfig.DEBUG){
@@ -27,11 +29,30 @@ object FireConfig {
                     saveAdToLocal(remoteConfig.getString("phone_ad"))
                     parseRingartPopJson(remoteConfig.getString("ringart_pop"))
                     parseRingartExchangeIcoJson(remoteConfig.getString("ringart_exchange_ico"))
+                    parseRingartBase(remoteConfig.getString("ringrt_base"))
+
                     AppKeepUtil.startForegroundService()
                 }
             }
         }
     }
+    private fun parseRingartBase(string: String){
+        runCatching {
+            val jsonObject = JSONObject(string)
+            ringrtBaseBean= FireRerferBean(
+                ringrt_base_abc = jsonObject.optInt("ringrt_base_abc"),
+                ringrt_base_bcd = jsonObject.optInt("ringrt_base_bcd"),
+                ringrt_base_ext = jsonObject.optInt("ringrt_base_ext"),
+                ringrt_base_have = jsonObject.optInt("ringrt_base_have"),
+                ringrt_base_it = jsonObject.optInt("ringrt_base_it"),
+                ringrt_base_vip = jsonObject.optInt("ringrt_base_vip"),
+                ringrt_base_sip = jsonObject.optInt("ringrt_base_sip"),
+            )
+        }
+    }
+
+    fun isFb(string: String)=ringrtBaseBean.isFB(string)
+    fun isBuyUser(string: String)=ringrtBaseBean.isBuyUser(string)
 
     private fun saveAdToLocal(string: String){
         "ad config--->s$string".log()

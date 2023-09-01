@@ -18,12 +18,15 @@ fun Context.toast(string: String){
     Toast.makeText(this,string,Toast.LENGTH_LONG).show()
 }
 
-fun isReferBuyUser(string: String)=string.contains("fb4a")||string.contains("gclid")||string.contains("not%20set")
-        ||string.contains("youtubeads")||string.contains("%7B%22")
-
-fun isFBUser(string: String)=string.contains("fb4a")
+//fun isReferBuyUser(string: String)=string.contains("fb4a")||string.contains("gclid")||string.contains("not%20set")
+//        ||string.contains("youtubeads")||string.contains("%7B%22")
+//
+//fun isFBUser(string: String)=string.contains("fb4a")
 
 fun isAdJustBuyUser(string: String)=!string.contains("organic")
+
+fun isCloakUser(string: String)=string=="alison"
+
 
 fun adShowNumKey(key:String)="${SimpleDateFormat("yyyy-MM-dd").format(Date(System.currentTimeMillis()))}_${key}"
 

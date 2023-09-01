@@ -2,6 +2,7 @@ package com.lixiang.phonecall.bean
 
 import com.lixiang.phonecall.base.appContext
 import com.lixiang.phonecall.util.UserTypeUtil
+import com.lixiang.phonecall.util.log
 import com.lixiang.phonecall.util.tba.TbaInfo
 
 class RingartExchangeIcoBean(
@@ -11,12 +12,15 @@ class RingartExchangeIcoBean(
 ) {
     fun checkCanHideIcon():Boolean{
         if (ringart_isuser!=1){
+            "checkCanHideIcon --->$ringart_isuser".log()
             return true
         }
         if (ringart_changeone!=1&&ringart_changeone!=2){
+            "ringart_changeone --->$ringart_changeone".log()
             return false
         }
         if (!UserTypeUtil.isCloakBlankUser&&(UserTypeUtil.adjustBuyUser||UserTypeUtil.referBuyUser)){
+            "ringart_changeone --->${!UserTypeUtil.isCloakBlankUser}...${UserTypeUtil.adjustBuyUser}...${UserTypeUtil.referBuyUser}".log()
             return true
         }
 

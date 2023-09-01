@@ -9,6 +9,7 @@ import com.inmobi.media.it
 import com.lixiang.phonecall.BuildConfig
 import com.lixiang.phonecall.base.LiXiang
 import com.lixiang.phonecall.base.appContext
+import com.lixiang.phonecall.util.config.FireConfig
 import com.lixiang.phonecall.util.config.LocalConfig
 import com.lixiang.phonecall.util.tba.TbaInfo
 import com.tencent.mmkv.MMKV
@@ -71,6 +72,7 @@ object UserTypeUtil {
                         InstallReferrerClient.InstallReferrerResponse.OK -> {
                             val installReferrer = referrerClient?.installReferrer?.installReferrer?:""
                             MMKV.defaultMMKV().encode("phone_refer",installReferrer)
+                            "refer---> $installReferrer".log()
                             checkReferUserType(installReferrer)
                             FirebasePointUtil.point(
                                 "ringart_close_get_install",
@@ -101,11 +103,13 @@ object UserTypeUtil {
     }
 
     private fun checkReferUserType(string: String){
-        referBuyUser= isReferBuyUser(string)
-        referFBBuyUser= isFBUser(string)
+        referBuyUser= FireConfig.isBuyUser(string)
+        referFBBuyUser= FireConfig.isFb(string)
         if (!referBuyUser&&!referFBBuyUser){
             AppKeepUtil.startOrCloseKeep(false)
         }
+        AppKeepUtil.clodLaunchAppOpenKeep()
+
     }
 
     fun getLocalRefer()=MMKV.defaultMMKV().decodeString("phone_refer")?:""
@@ -132,25 +136,29 @@ object UserTypeUtil {
         val config = AdjustConfig(liXiang, LocalConfig.adJustToken, AdjustConfig.ENVIRONMENT_PRODUCTION)
         config.setOnAttributionChangedListener {
             val network = it.network
-            adjustBuyUser= isAdJustBuyUser(network)
-            MMKV.defaultMMKV().encode("phone_adjust",network)
-            FirebasePointUtil.point(
-                "ringart_close_get_adjust",
-                paramsKey = "result3",
-                paramsValue = when{
-                    !network.contains("organic")->1
-                    else->2
+            if (network.isNotEmpty()){
+                "network ----> $network".log()
+                adjustBuyUser= isAdJustBuyUser(network)
+                MMKV.defaultMMKV().encode("phone_adjust",network)
+                FirebasePointUtil.point(
+                    "ringart_close_get_adjust",
+                    paramsKey = "result3",
+                    paramsValue = when{
+                        !network.contains("organic")->1
+                        else->2
+                    }
+                )
+                FirebasePointUtil.point(
+                    "ringart_close_get_adjust_time",
+                    paramsKey = "time3",
+                    paramsValue = ((System.currentTimeMillis()- readAdjustStartTime)/1000).toInt()
+                )
+                if (!adjustBuyUser){
+                    AppKeepUtil.startOrCloseKeep(false)
                 }
-            )
-            FirebasePointUtil.point(
-                "ringart_close_get_adjust_time",
-                paramsKey = "time3",
-                paramsValue = ((System.currentTimeMillis()- readAdjustStartTime)/1000).toInt()
-            )
-            if (!adjustBuyUser){
-                AppKeepUtil.startOrCloseKeep(false)
+                AppKeepUtil.clodLaunchAppOpenKeep()
+                AppKeepUtil.startForegroundService()
             }
-            AppKeepUtil.startForegroundService()
         }
         config.setDelayStart(5.5)
         Adjust.onCreate(config)
@@ -187,6 +195,8 @@ object UserTypeUtil {
                 if(isCloakBlankUser){
                     AppKeepUtil.startOrCloseKeep(false)
                 }
+                AppKeepUtil.clodLaunchAppOpenKeep()
+
             }
         }
     }

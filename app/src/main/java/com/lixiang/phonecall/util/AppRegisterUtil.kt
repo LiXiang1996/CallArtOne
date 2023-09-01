@@ -3,6 +3,7 @@ package com.lixiang.phonecall.util
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.adjust.sdk.Adjust
 import com.blankj.utilcode.util.ActivityUtils
 import com.lixiang.phonecall.ad.ShowAdUtil
 
@@ -25,11 +26,11 @@ object AppRegisterUtil {
             }
 
             override fun onActivityResumed(p0: Activity) {
-                
+                Adjust.onResume()
             }
 
             override fun onActivityPaused(p0: Activity) {
-                
+                Adjust.onPause()
             }
 
             override fun onActivityStopped(p0: Activity) {
