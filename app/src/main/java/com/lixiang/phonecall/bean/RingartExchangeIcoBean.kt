@@ -8,7 +8,7 @@ import com.lixiang.phonecall.util.tba.TbaInfo
 class RingartExchangeIcoBean(
     private val ringart_isuser:Int=2,
     private val ringart_after:Int=1,
-    private val ringart_changeone:Int=1,
+    private val ringart_changeone:Int=2,
 ) {
     fun checkCanHideIcon():Boolean{
         if (ringart_isuser!=1){

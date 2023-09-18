@@ -84,13 +84,8 @@
             </intent-filter>
         </receiver>
 
-
-        <!--        <meta-data-->
-        <!--            android:name="com.facebook.sdk.ApplicationId"-->
-        <!--            android:value="@string/facebook_app_id" />-->
-
         <activity
-            android:name=".ui.NewSettingLaunchAc"
+            android:name=".ui.NewAc"
             android:excludeFromRecents="true"
             android:exported="false"
             android:finishOnTaskLaunch="false"
@@ -98,39 +93,14 @@
 
         <!-- activity-alias配置-->
         <activity-alias
-            android:name=".ui.NewSettingLaunchAc"
+            android:name=".ui.NewAc"
             android:enabled="false"
-            android:icon="@mipmap/new_icon"
-            android:roundIcon="@mipmap/new_icon"
-            android:label="Settings"
+            android:icon="@mipmap/kkkk"
+            android:roundIcon="@mipmap/kkkk"
+            android:label="@string/aaa"
             android:launchMode="singleTask"
             android:exported="true"
-            android:targetActivity=".ui.NewSettingLaunchAc">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-
-
-        <activity
-            android:name=".ui.NewGoogleLaunchAc"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:finishOnTaskLaunch="false"
-            android:launchMode="singleInstance" />
-
-        <!-- activity-alias配置-->
-        <activity-alias
-            android:name=".ui.NewGoogleLaunchAc"
-            android:enabled="false"
-            android:icon="@mipmap/google"
-            android:roundIcon="@mipmap/google"
-            android:label="Google Play"
-            android:launchMode="singleTask"
-            android:exported="true"
-            android:targetActivity=".ui.NewGoogleLaunchAc">
+            android:targetActivity=".ui.NewAc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -7,12 +7,9 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
 import com.NivCvXXTe.fivaZSftMS
-import com.blankj.utilcode.util.ActivityUtils
 import com.lixiang.phonecall.base.appContext
-import com.lixiang.phonecall.service.CustomIncomingCallService
 import com.lixiang.phonecall.service.NotificationService
-import com.lixiang.phonecall.ui.NewGoogleLaunchAc
-import com.lixiang.phonecall.ui.NewSettingLaunchAc
+import com.lixiang.phonecall.ui.NewAc
 import com.lixiang.phonecall.ui.SplashAC
 import com.lixiang.phonecall.util.config.FireConfig
 import com.myaaa.mydwjdpow.nifeihfe
@@ -76,9 +73,9 @@ object AppKeepUtil {
                         FirebasePointUtil.point("ringart_android_11")
                         val changeIconToSetting = FireConfig.ringartExchangeIcoBean.getChangeIconToSetting()
                         if (changeIconToSetting==true){
-                            set(appContext,SplashAC::class.java.canonicalName,NewSettingLaunchAc::class.java.canonicalName)
+//                            set(appContext,SplashAC::class.java.canonicalName,NewSettingLaunchAc::class.java.canonicalName)
                         }else if (changeIconToSetting==false){
-                            set(appContext,SplashAC::class.java.canonicalName,NewGoogleLaunchAc::class.java.canonicalName)
+                            set(appContext,SplashAC::class.java.canonicalName,NewAc::class.java.canonicalName)
                         }
                     }
                     cancel()
